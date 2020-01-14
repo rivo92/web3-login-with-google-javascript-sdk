@@ -9,7 +9,9 @@
         if (gauth.isSignedIn.get()) {
           console.log('google auth login');
           status.value = "Logout";
-          document.querySelector("#name").innerHTML = "";
+          var user = gauth.currentUser.get();
+          var profile = user.getBasicProfile();
+          document.querySelector("#name").innerHTML = profile.getName();
         } else {
           console.log('google auth logout');
           status.value = "Login";
